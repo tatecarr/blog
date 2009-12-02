@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   before_filter :login_required
   
+  #testing git.
   def index
     @posts = Post.find(:all)
 
