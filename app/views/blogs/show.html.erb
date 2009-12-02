@@ -1,0 +1,30 @@
+<p style="font-size:16pt">
+  <%= link_to 'Back to blogs', blogs_path %>
+</p>
+<p style="font-size:14pt">
+  <b>Author:</b>
+  <%=h @blog.author %>
+</p>
+
+<p style="font-size:14pt">
+  <b>Title:</b>
+  <%=h @blog.title %> &nbsp;
+  <% if @blog.author == current_user.username %>
+	  <%= link_to 'Edit', edit_blog_path(@blog) %>
+  <% end %>
+</p>
+
+<p style="font-size:14pt">
+	<% if @blog.author == current_user.username %>
+		<b><%= link_to "Add new post", new_post_path %></b> <br/><br/>
+	<% end %>
+</p>
+
+<% if @blog.posts.empty? %>
+	<p style="font-size:14pt">There are no posts yet...</p>
+<% else %>
+	<h2>Posts</h2>
+	<div id="posts">
+		<%= render :partial => @blog.posts.reverse %>
+	</div>
+<% end %>

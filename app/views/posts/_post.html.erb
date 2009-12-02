@@ -1,0 +1,6 @@
+<% div_for post do %>
+	<h2><%= link_to_unless_current h(post.title), post %></h2>
+	<%= post.body %> <br/>
+	<% link_text = post.comments.count.to_s + " comments." %>
+	<p>Posted by: <%= Blog.find_by_id(post.blog_id).author %> at <%= post.created_at %> with <%= link_to link_text, post %></p>
+<% end %>

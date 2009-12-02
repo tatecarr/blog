@@ -1,0 +1,24 @@
+<div align="center">
+	<h1>Here are the blogs...</h1>
+	<% if !@has_blog %>
+		<%= link_to 'Create My Blog!', new_blog_path %> <br/><br/>
+	<% else %>
+		<p>My Blog:&nbsp;&nbsp;<%= link_to @has_blog.title, @has_blog %></p>
+	<% end %>
+
+	<table>
+	  <tr>
+	    <th>Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	    <th>Author</th>
+	  </tr>
+
+	<% for blog in @blogs %>
+		<% if blog != @has_blog %>
+		  <tr>
+		    <td><%= link_to blog.title, blog %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		    <td><%=h blog.author %></td>
+		  </tr>
+		<% end %>
+	<% end %>
+	</table>
+</div>

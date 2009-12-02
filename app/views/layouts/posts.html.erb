@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Posts: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :all %>
+</head>
+<body style="background-color:#cccccc">
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<div align="center">
+	<div id="logout" align="right" style="width:600px">
+		<% if logged_in? %>
+		<p>You are logged in as <%= current_user.username %></p>
+		<p>Click here to <%= link_to "Logout", logout_path %></p>
+		<% end %>
+	</div>
+	
+	<div align="left" style="width:600px; border-style:solid; padding:15px">
+		<%= yield  %>
+	</div>
+
+</div>
+
+</body>
+</html>
